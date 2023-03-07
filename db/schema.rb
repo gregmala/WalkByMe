@@ -10,9 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_093307) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_101019) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "label"
+    t.string "places"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "label"
+    t.string "phone_number"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "address_id", null: false
+    t.string "status"
+    t.integer "estimated_arrival"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_routes_on_address_id"
+    t.index ["user_id"], name: "index_routes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +52,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_093307) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "photo"
+    t.string "location"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contacts", "users"
+  add_foreign_key "routes", "addresses"
+  add_foreign_key "routes", "users"
 end
