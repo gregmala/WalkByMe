@@ -1,0 +1,10 @@
+<h1><%= @contact.label %></h1>
+<h2><%= @contact.phone_number %></h2>
+
+
+<%= link_to "Edit contact card", edit_user_contact_path %>
+
+
+<%= link_to "Delete", user_contact_path(current_user,@contact),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>

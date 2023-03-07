@@ -1,0 +1,8 @@
+
+<% @contacts.each do |contact| %>
+<% if contact.user == current_user %>
+  <h1><%= link_to contact.label, user_contact_path(contact.user, contact) %></li>
+<% end %>
+<% end %>
+
+<p><%= link_to "Add new contact", new_user_contact_path %></p>

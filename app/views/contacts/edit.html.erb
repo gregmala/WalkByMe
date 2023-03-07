@@ -1,0 +1,5 @@
+<%= simple_form_for [current_user, @contact] do |f| %>
+  <%= f.input :label %>
+  <%= f.input :phone_number %>
+  <%= f.submit %>
+<% end %>
