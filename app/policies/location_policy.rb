@@ -1,4 +1,4 @@
-class ContactPolicy < ApplicationPolicy
+class LocationPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -8,7 +8,6 @@ class ContactPolicy < ApplicationPolicy
 
   def show?
     record.user == user
-    # true
   end
 
   def edit?
@@ -30,4 +29,5 @@ class ContactPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
 end

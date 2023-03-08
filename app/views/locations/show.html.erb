@@ -1,0 +1,9 @@
+<h2><%= @location.name %></h2>
+<h3><%= @location.address %></h3>
+
+
+<p><%= link_to "Edit", edit_user_location_path %></p>
+
+<%= link_to "Delete", user_location_path(current_user,@location),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>

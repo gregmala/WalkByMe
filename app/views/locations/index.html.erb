@@ -1,0 +1,5 @@
+<% @locations.each do |location| %>
+<% if location.user == current_user %>
+<h2><%= link_to location.address , user_location_path(location.user, location) %></h2>
+<% end %>
+<% end %>
