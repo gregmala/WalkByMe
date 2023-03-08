@@ -1,3 +1,30 @@
+
 <h2><%= link_to "Emergency contacts", user_contacts_path(current_user) %></h2>
 
 <h2><%= link_to "Saved Addresses", user_locations_path(current_user) %></h2>
+
+
+<div id='details' ></div>
+<div id='map'></div>
+<script>
+
+// setInterval(function() {
+//   navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
+// }, 5000);
+
+function successCallBack(position) {
+  const {latitude, longitude} = position.coords;
+  console.log(latitude)
+  details.innerHTML = "Latitude: "+latitude+" | Longitude: "+longitude+"<br>";
+  // setInterval(function() {
+  //     successCallBack(position);
+  //   },5000);
+  map.outerHTML = '<div id="map"><iframe width="700" height ="300" src="https://maps.google.com/maps?q='+latitude+','+longitude+'&amp;output=embed"></iframe></div>'
+
+}
+function errorCallBack(error) {
+  console.log("cannot find")
+}
+// navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack)
+// setInterval(navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack), 5000)
+</script>

@@ -8,11 +8,15 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+     <%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
   </head>
 
   <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+    <%= render "shared/flashes" %>
 
     <%= yield %>
+
   </body>
 </html>

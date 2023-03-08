@@ -23,9 +23,16 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+
+  def update_location
+    current_user.update(latitude: params[:user][:latitude], longitude: params[:user][:longitude])
+    head :ok
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :phone_number, :photo)
   end
+
 end
