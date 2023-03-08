@@ -1,4 +1,3 @@
 class Address < ApplicationRecord
-  belongs_to :route
-  has_one :user, through: :routes
+  belongs_to :user
 end

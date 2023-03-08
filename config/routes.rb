@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :users, only: [:show, :edit ,:update, :destroy] do
     resources :contacts
-    resources :addresses
+    resources :locations
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
