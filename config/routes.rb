@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  resources :checkins, only: :create
   resources :users, only: [:show, :edit ,:update, :destroy] do
     resources :contacts
     resources :locations
   end
 
-  post '/update_location', to: 'users#update_location'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
