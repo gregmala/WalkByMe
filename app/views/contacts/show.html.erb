@@ -1,6 +1,6 @@
 <h1><%= @contact.label %></h1>
 <h2><%= @contact.phone_number %></h2>
-
+<%= cl_image_tag @contact.avatar.key, height: 300, width: 400, crop: :fill %>
 
 <%= link_to "Edit contact card", edit_user_contact_path %>
 

@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   has_many :contacts
   has_many :routes
   has_many :locations

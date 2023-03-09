@@ -1,5 +1,6 @@
-<%= simple_form_for [current_user,@contact] do |f| %>
+<%= simple_form_for [current_user, @contact] do |f| %>
   <%= f.input :label %>
   <%= f.input :phone_number %>
+  <%= f.input :avatar, as: :file %>
   <%= f.submit %>
 <% end %>
