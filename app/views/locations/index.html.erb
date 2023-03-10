@@ -1,13 +1,19 @@
 <div class="container">
-  <div class="rounded">
+  <div class="rounded location-container">
     <div class="row justify-content-center">
       <% @locations.each do |location| %>
         <% if location.user == current_user %>
           <div class="col-sm-6 col-md-4 mb-3">
             <div class="cardloc rounded h-100">
-              <div class="card-body d-flex align-items-center">
-                <div class="icon-container mr-3"><i class="fas <%= location.icon %>" style="width: 32px; height: 32px;"></i></div>
-                <h2 class="card-title mb-0"><%= link_to location.name, user_location_path(location.user, location), class: "card-link" %></h2>
+              <div class="card-body d-flex align-items-center justify-content-between">
+                <div class="card-body-icons">
+                  <div class="icon-container mr-auto"><i class="fas <%= location.icon %>" style="width: 32px; height: 32px;"></i></div>
+                  <%= link_to location.name, user_location_path(location.user, location), class: "card-link" %>
+                </div>
+                <div class="card-body-icons">
+                  <div class="icon-container ml-auto"><%= link_to raw('<i class="fa-solid fa-pen-to-square text-black"></i>'), edit_user_location_path(location.user, location), class: "card-icon" %></div>
+                  <div class="icon-container ml-3"><%= link_to raw('<i class="fa-solid fa-xmark text-black"></i>'), user_location_path(current_user, location), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "card-icon" %></div>
+                </div>
               </div>
             </div>
           </div>
@@ -20,10 +26,21 @@
         <%= link_to "Add new location", new_user_location_path, class: "btn btn-success btn-block rounded" %>
       </div>
     </div>
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-6 logo-container">
+        <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678461493/home_osmsps.png" alt="WalkByMe Logo" class="logo-image">
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
+  /* Custom CSS for WalkByMe location page */
+  .location-container {
+    margin-bottom: 2rem;
+  }
+
   .cardloc {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 50px;
@@ -33,9 +50,15 @@
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   }
 
+  .card-body-icons {
+    display: flex;
+    align-items: center;
+  }
+
   .icon-container {
     font-size: 24px;
     color: #666;
+    margin-right: 5px; /* Add margin to create space between icon and text */
   }
 
   .icon-container i {
@@ -53,4 +76,19 @@
   .btn-block {
     display: block;
   }
-</style>
+
+  .card-icon {
+    color: black;
+    text-decoration: none;
+  }
+
+  /* Custom CSS for WalkByMe logo */
+ .logo-container {
+    position: absolute;
+    bottom: -46px;
+    left: 16%;
+    transform: translateX(-50%);
+    width: 418px;
+    margin-top: 113px;
+  }
+  </style>
