@@ -1,0 +1,62 @@
+
+body {
+  background-image: url("https://res.cloudinary.com/dzb3rykjc/image/upload/v1678397557/WalkByMe/Background/background_mllwy7.png");
+  background-size: 108%
+}
+
+i{
+  color: black;
+  font-size: 10px;
+}
+
+img{
+  border-radius: 50%;
+  height: 12vh;
+  display:block;
+  margin: auto;
+  border: 5px solid white;
+}
+
+h1{
+  text-align: center;
+
+}
+
+.profile-card{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+
+
+}
+
+.profile-card-info{
+  background-color: #61B390;
+  border-radius: 3px;
+  width: 75vw;
+  margin: 10px;
+
+  #label{
+    margin: 2px 8px;
+  }
+
+  p{
+    font-size: 18px;
+    margin: 2px 8px;
+  }
+
+}
+
+.file-upload {
+  display: none;
+}
+
+.camera {
+  position: absolute;
+  top: 250px;
+  right: 160px;
+  color: #666666;
+
+
+}
