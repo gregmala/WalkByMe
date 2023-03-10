@@ -26,7 +26,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     authorize @contact
     # @user = current_user
-    # TwilioClient.new.send_text(@user)
+    # TwilioClient.new.homesafe_text(@user)
     # flash[:message] = "User, #{@user.first_name}, was succesfully created!"
   end
 
@@ -41,7 +41,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     authorize @contact
-    redirect_to user_contacts_path(current_user)
+    redirect_to user_contacts_pacth(current_user)
   end
 
   private

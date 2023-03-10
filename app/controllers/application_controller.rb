@@ -26,6 +26,21 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:phone_number, :first_name, :last_name])
   end
 
+  def homesafe_text
+    @user = current_user
+    authorize @user
+    TwilioClient.new.homesafe_text(@user)
+    flash[:success] = "Homesafe text sent to #{@user.first_name}!"
+    redirect_to root_path
+  end
+
+  def danger_text
+    user = current_user
+    TwilioClient.new.danger_text(user)
+    flash[:error] = "Danger text sent to #{user.first_name}!"
+    redirect_to root_path
+  end
+
   private
 
   def skip_pundit?

@@ -1,3 +1,7 @@
 <h2><%= link_to "Emergency contacts", user_contacts_path(current_user) %></h2>
 
 <h2><%= link_to "Saved Addresses", user_locations_path(current_user) %></h2>
+
+<%= button_to "I Am Home", homesafe_text_path, method: :post, class: "btn btn-success" %>
+
+<%= button_to "SOS", danger_text_path, method: :post, class: "btn btn-danger" %>

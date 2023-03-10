@@ -36,6 +36,16 @@ class ApplicationPolicy
     false
   end
 
+  def homesafe_text?
+    @record == @user
+    #true
+  end
+
+  def danger_text?
+    @record == @user
+    #true
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user
