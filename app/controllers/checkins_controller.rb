@@ -1,21 +1,37 @@
 class CheckinsController < ApplicationController
 
-  def show
-    @checkin = 
+  def index
+    @checkins = policy_scope(Checkin)
   end
 
-  def new
-    @checkin = Checkin.new()
-    @checkin.user = current_user
+  def end_trip
+    @checkin = Checkin.find(params[:id])
+    authorize @checkin
+    @checkin.update(can_end_trip: true, status: "Completed")
+    @checkin.save
+    redirect_to checkins_path
+  end
+
+  def show
+    @checkin = Checkin.find(params[:id])
     authorize @checkin
   end
 
+
   def create
-    @checkin = Checkin.new(checkin_params)
-    if @checkin.save
-      check_end_trip(@checkin)
-      redirect_to checkin_path(@checkin)
+    @checkin = Checkin.new()
+    @checkin.user = current_user
+    authorize @checkin
+    @checkin.save
+    redirect_to checkin_path(@checkin)
   end
+
+  def update
+    @checkin = Checkin.find(params[:id])
+    authorize @checkin
+    @checkin.update(checkin_params)
+  end
+
 
   private
 
@@ -23,12 +39,4 @@ class CheckinsController < ApplicationController
   def checkin_params
     params.require(:checkin).permit(:estimated_time_for_arrival, :destination_latitude, :destination_longitude, :can_end_trip)
   end
-
-  def check_end_trip(checkin)
-
-  if checkin.estimated_time_for_arrival > 3
-    checkin.update(can_end_trip: true)
-  end
-  end
-  # Use a library or write your own function to calculate the distance between two points on the Earth's surface
 end

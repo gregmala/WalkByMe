@@ -3,17 +3,17 @@ import mapboxgl from "mapbox-gl";
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 
 export default class extends Controller {
-  static values =
+  static targets = ['link']
+  static values = {id: Number}
   connect() {
     mapboxgl.accessToken = "pk.eyJ1IjoicGllcnJlamViYXJhIiwiYSI6ImNsZHloNXl5bTA3MWIzdnM1amNqbmFkanUifQ.k9o5mCT3bt0X6C-b6JPskA";
-    console.log("hello")
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-74, 40.7128],
       zoom: 12,
-    });
 
+    });
     this.initializeMap();
   }
 
@@ -26,32 +26,26 @@ export default class extends Controller {
     });
 
     this.map.addControl(this.directions, "top-left");
-    console.log(this.directionController)
-    this.directionController.on("route", (e) => {
+    this.directions.on("route", (e) => {
       const route = e.route[0];
-      const destination = this.directionController.getDestination().geometry.coordinates;
-      console.log(destination)
+      const destination = this.directions.getDestination().geometry.coordinates;
       this.recordData({
         estimated_time_for_arrival: Math.round(route.duration / 60),
         destination_latitude: destination[1],
         destination_longitude: destination[0],
       });
+      console.log(route.duration)
+      console.log(this.element)
+      if (route.duration < 300) {
+        this.linkTarget.classList.remove("end-link")
+        this.linkTarget.classList.add("end-link-show")
+      }
     });
-
-    // Add geolocation controller
-    this.geolocate = new mapboxgl.GeolocateControl({
-      positionOptions: {enableHighAccuracy: true},
-      trackUserLocation: true,
-      showUserHeading: true,
-    })
-
-    this.mapbox.addControl(this.geolocate)
-
   }
 
   recordData(data) {
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').getAttribute('content')
-    fetch ("/checkins/:id", {
+    fetch (`/checkins/${this.idValue}`, {
       method: "PATCH",
       headers: {
         "X-CSRF-Token": csrf_token,

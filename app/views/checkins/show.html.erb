@@ -1,1 +1,3 @@
-<div data-controller="direction" class="map" data-value="<%= @checkin.id %>"></div>
+  <div data-controller="direction" class="map" data-direction-id-value="<%= @checkin.id %>">
+     <%= button_to "End Trip", end_trip_checkin_path(@checkin), method: :patch, class: "end-link", data: {direction_target: "link"} %>
+  </div>

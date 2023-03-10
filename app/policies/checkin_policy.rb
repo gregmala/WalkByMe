@@ -9,4 +9,16 @@ class CheckinPolicy < ApplicationPolicy
   def create?
     record.user == user
   end
+
+  def show?
+    record.user == user
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def end_trip?
+    record.user == user
+  end
 end
