@@ -7,3 +7,7 @@
 <%= form_with url: checkins_path, method: :post do |form| %>
   <%= form.submit "Create Checkin" %>
 <% end %>
+
+<%= button_to "I Am Home", homesafe_text_path, method: :post, class: "btn btn-success" %>
+
+<%= button_to "SOS", danger_text_path, method: :post, class: "btn btn-danger" %>

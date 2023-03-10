@@ -1,3 +1,5 @@
+require "#{Rails.root}/app/services/twilio_client.rb"
+
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :destroy , :update]
 
@@ -23,6 +25,9 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     authorize @contact
+    # @user = current_user
+    # TwilioClient.new.homesafe_text(@user)
+    # flash[:message] = "User, #{@user.first_name}, was succesfully created!"
   end
 
   def create
@@ -36,7 +41,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     authorize @contact
-    redirect_to user_contacts_path(current_user)
+    redirect_to user_contacts_pacth(current_user)
   end
 
   private
@@ -46,6 +51,6 @@ class ContactsController < ApplicationController
   end
 
   def contact_params
-    params.require(:contact).permit(:label, :phone_number, :photo)
+    params.require(:contact).permit(:label, :phone_number, :avatar)
   end
 end

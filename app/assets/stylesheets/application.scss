@@ -12,6 +12,7 @@
 @import "pages/index";
 
 
+
 .map {
   height: 600px;
   width: 100%;
@@ -27,3 +28,6 @@
   color: black;
   font-size: 50px;
 }
+
+@import "pages/users/show";
+

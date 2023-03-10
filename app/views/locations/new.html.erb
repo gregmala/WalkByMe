@@ -1,5 +1,6 @@
 <%= simple_form_for [current_user, @location] do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
+  <%= f.input :icon, as: :select, collection: { 'Home' => 'fa-house', 'Work' => 'fa-briefcase', 'Restaurant' => 'fa-solid fa-burger' }, label: 'Select an icon', input_html: { class: 'form-control' } %>
   <%= f.submit %>
 <% end %>

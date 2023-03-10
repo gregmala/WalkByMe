@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_143945) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_162204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,7 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143945) do
     t.bigint "user_id", null: false
     t.string "label"
     t.string "phone_number"
-    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contacts_on_user_id"
@@ -71,17 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143945) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "icon"
     t.index ["user_id"], name: "index_locations_on_user_id"
-  end
-
-  create_table "routes", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "address_id", null: false
-    t.string "status"
-    t.integer "estimated_arrival"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_routes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,8 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143945) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
-    t.string "photo"
-    t.string "location"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -106,5 +96,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143945) do
   add_foreign_key "checkins", "users"
   add_foreign_key "contacts", "users"
   add_foreign_key "locations", "users"
-  add_foreign_key "routes", "users"
 end
