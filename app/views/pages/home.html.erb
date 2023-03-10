@@ -2,16 +2,7 @@
 <h2><%= link_to "Emergency contacts", user_contacts_path(current_user) %></h2>
 
 <h2><%= link_to "Saved Addresses", user_locations_path(current_user) %></h2>
+<h2><%= link_to "Take me Homme", checkins_path %></h2>
 
 
-<div data-controller="map" class="map" >
-  <%# <button data-action="click->direction#connectDirection">
-    Get Directions
-  </button> %>
-</div>
-<div data-controller="direction"
-     style="height: 400px;">
-  <button data-action="click->direction#connectDirection">
-    Get Directions
-  </button>
-</div>
+<%# <div data-controller="direction" class="map"></div> %>

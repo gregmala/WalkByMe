@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_231835) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_154555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_231835) do
     t.float "latitude"
     t.float "longitude"
     t.bigint "recorded_on"
+    t.integer "estimated_time_for_arrival"
+    t.float "destination_latitude"
+    t.float "destination_longitude"
+    t.boolean "can_end_trip", default: false
     t.index ["user_id"], name: "index_checkins_on_user_id"
   end
 

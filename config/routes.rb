@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :checkins, only: :create
+  resources :checkins, only: [:new, :create, :show]
+  patch '/checkins/:id/end_trip', to: 'checkins#end_trip', as: 'end_trip'
   resources :users, only: [:show, :edit ,:update, :destroy] do
     resources :contacts
     resources :locations
