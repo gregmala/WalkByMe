@@ -2,7 +2,7 @@
   <h1> Hey <%= @user.first_name %>!</h1>
   <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678377319/WalkByMe/profile_picture_sara_xpiwma.jpg" alt="profile_picture">
   <div class="camera-user-show">
-    <i class="fa fa-camera fa-lg upload-button"></i>
+    <i class="fa fa-camera upload-button"></i>
     <input class="file-upload-user-show" type="file" accept="image/*"/>
   </div>
   <div class="profile-card-user-show">
@@ -19,10 +19,12 @@
       <p><%= @user.phone_number %></p>
     </div>
   </div>
+  <button><%= link_to "Update info", edit_user_path %></button>
+
 </div>
 
 <!--
-<%= link_to "Update info", edit_user_path  %>
+
 <%= link_to "Delete",
   destroy_user_session_path,
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}

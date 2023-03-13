@@ -2,12 +2,11 @@
 .background-img-user-show {
   background-image: url("https://res.cloudinary.com/dzb3rykjc/image/upload/v1678397557/WalkByMe/Background/background_mllwy7.png");
   background-size: cover;
-  // width: 105%;
   height: 800px;
 
   img{
     border-radius: 50%;
-    height: 12vh;
+    height: 15vh;
     display:block;
     margin: auto;
     border: 5px solid white;
@@ -15,6 +14,7 @@
 
   h1{
     text-align: center;
+    font-weight: 200px;
   }
 }
 
@@ -54,7 +54,11 @@
 
 .camera-user-show {
   position: absolute;
-  top: 180px;
-  right: 160px;
+  top: 200px;
+  right: 145px;
   color: #666666;
+
+  i{
+    font-size: larger;
+  }
 }
