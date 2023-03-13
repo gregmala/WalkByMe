@@ -3,11 +3,6 @@
     <h1> Hey <%= @user.first_name %>!</h1>
     <div>
     <%= image_tag ("https://res.cloudinary.com/dzb3rykjc/image/upload/v1678704501/Photo_on_01-03-23_at_15.34_zfm3yc.jpg"), class: "profile-picture-user-show"%>
-      <!--<% if @user.avatar.attached? %>
-          <%= image_tag (@user.avatar.key), class: "profile-picture-user-show"%>
-        <% else %>
-          <%= image_tag "https://res.cloudinary.com/dzb3rykjc/image/upload/v1678696112/1678696012733_zmller.png", class: "avatar-large" %>
-      <% end %> -->
     </div>
     <div class="camera-user-show">
       <i class="fa fa-camera fa-lg upload-button"></i>
@@ -28,9 +23,11 @@
       </div>
     </div>
   </div>
+  <button><%= link_to "Update info", edit_user_path %></button>
+
 </div>
 <!--
-<%= link_to "Update info", edit_user_path  %>
+
 <%= link_to "Delete",
   destroy_user_session_path,
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}

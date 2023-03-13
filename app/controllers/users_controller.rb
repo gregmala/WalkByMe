@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     authorize @user
+    # if @user.update(user_params)
+    #   redirect_to @user
+    # end
   end
 
   def update
