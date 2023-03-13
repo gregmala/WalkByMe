@@ -1,13 +1,17 @@
-
+.blue{
+  background-color: #81D6E3;
+}
 .background-img-user-show {
   background-image: url("https://res.cloudinary.com/dzb3rykjc/image/upload/v1678397557/WalkByMe/Background/background_mllwy7.png");
   background-size: cover;
   height: 800px;
 
-  img{
+  .profile-picture-user-show{
     border-radius: 50%;
-    height: 15vh;
-    display:block;
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+    display: block;
     margin: auto;
     border: 5px solid white;
   }
