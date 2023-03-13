@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DesignController from "./design_controller"
+application.register("design", DesignController)
+
 import DirectionController from "./direction_controller"
 application.register("direction", DirectionController)
 
