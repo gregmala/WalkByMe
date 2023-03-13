@@ -1,15 +1,9 @@
-<div class="container mt-5">
-  <div class="card shadow rounded">
-    <div class="card-header bg-primary text-white">
-      <h2 class="mb-0"><%= @location.name %></h2>
-    </div>
-    <div class="card-body">
-      <h3 class="mb-4"><%= @location.address %></h3>
-      <%= link_to "Edit", edit_user_location_path, class: "btn btn-warning mr-3" %>
-      <%= link_to "Delete", user_location_path(current_user,@location),
-        class: "btn btn-danger",
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
-    </div>
-  </div>
-</div>
+<h2><%= @location.name %></h2>
+<h3><%= @location.address %></h3>
+
+
+<p><%= link_to "Edit", edit_user_location_path %></p>
+
+<%= link_to "Delete", user_location_path(current_user,@location),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>

@@ -1,6 +1,12 @@
+
 <h2><%= link_to "Emergency contacts", user_contacts_path(current_user) %></h2>
 
 <h2><%= link_to "Saved Addresses", user_locations_path(current_user) %></h2>
+
+
+<%= form_with url: checkins_path, method: :post do |form| %>
+  <%= form.submit "Create Checkin" %>
+<% end %>
 
 <%= button_to "I Am Home", homesafe_text_path, method: :post, class: "btn btn-success" %>
 

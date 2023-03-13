@@ -10,5 +10,27 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+
+.map {
+  height: 600px;
+  width: 100%;
+}
+
+.end-link{
+  display:none;
+}
+
+.end-link-show{
+  z-index: 100;
+  position: absolute;
+  color: black;
+  font-size: 50px;
+}
+
 @import "pages/users/show";
 @import "pages/users/edit";
+
+
+
