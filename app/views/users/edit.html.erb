@@ -1,6 +1,15 @@
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :phone_number %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.submit %>
-<% end %>
+<div class="container-user-edit">
+  <div class="form-edit-user ">
+    <%= simple_form_for(@user) do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :phone_number %>
+      <%= f.input :avatar, as: :file, label: "Upload your photo" %>
+    <div class= "text-center-edit-user">
+        <p class= "btn-save-edit-user"><%= f.button :submit, "Save" %></p>
+    </div>
+    <% end %>
+  </div>
+  <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678449795/WalkByMe/Background/background-user-edit-MqKb9woa8-transformed-removebg-preview_zugwic.png" alt="drawing girl" class= "img-user-edit">
+</div>

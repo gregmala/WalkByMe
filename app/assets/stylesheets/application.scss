@@ -10,7 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
+@import "pages/users/show";
 
 
 .map {
@@ -28,6 +28,3 @@
   color: black;
   font-size: 50px;
 }
-
-@import "pages/users/show";
-
