@@ -42,8 +42,7 @@ class ApplicationPolicy
   end
 
   def danger_text?
-    @record == @user
-    #true
+    true
   end
 
   class Scope
