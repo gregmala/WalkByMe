@@ -8,6 +8,8 @@
   <%= form.submit "Create Checkin" %>
 <% end %>
 
+<div data-controller="map" style="width: 400px;"></div>
+
 <%= button_to "I Am Home", homesafe_text_path, method: :post, class: "btn btn-success" %>
 
 <%= button_to "SOS", danger_text_path, method: :post, class: "btn btn-danger" %>

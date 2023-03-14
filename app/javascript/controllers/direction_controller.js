@@ -3,9 +3,10 @@ import mapboxgl from "mapbox-gl";
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 
 export default class extends Controller {
-  static targets = ['link','eta']
-  static values = {id: Number}
+  static targets = ['link','eta','timer']
+  static values = {id: Number, user: Object}
   connect() {
+    console.log("hi")
     mapboxgl.accessToken = "pk.eyJ1IjoicGllcnJlamViYXJhIiwiYSI6ImNsZHloNXl5bTA3MWIzdnM1amNqbmFkanUifQ.k9o5mCT3bt0X6C-b6JPskA";
     this.map = new mapboxgl.Map({
       container: this.element,
@@ -15,6 +16,7 @@ export default class extends Controller {
 
     });
     this.initializeMap();
+    console.dir(this.timerTarget);
   }
 
   initializeMap() {
@@ -25,15 +27,12 @@ export default class extends Controller {
       flyTo: false,
     });
 
-    this.map.addControl(this.directions, "top-left");
+    this.map.addControl(this.directions, "bottom-left");
     this.directions.on("route", (e) => {
-      // this.searchBar.style.display = none;
-      this.searchBar = document.querySelector(".mapbox-directions-component-keyline > .mapboxgl-ctrl-directions-search");
-      searchBar.style.display = "none"
-      console.log("aaaa")
       const stepsList = e.route[0].legs[0].steps
       const route = e.route[0];
       const destination = this.directions.getDestination().geometry.coordinates;
+
       this.recordData({
         estimated_time_for_arrival: Math.round(route.duration / 60),
         destination_latitude: destination[1],
@@ -44,12 +43,43 @@ export default class extends Controller {
       //   this.linkTarget.classList.add("end-link-show")
       // }
       const steps = document.querySelectorAll(".mapbox-directions-step")
-
+      // document.querySelector(".mapbox-directions-origin").classList.add("display")
+      // document.querySelector(".mapbox-directions-destination").classList.add("display")
+      // document.querySelector(".mapbox-directions-component .mapbox-directions-inputs").classList.add("display")
       let stepDurations = new Array();
       stepsList.forEach((stepList)=> {
-        // console.log(stepList);
         stepDurations.push(stepList.duration);
       })
+
+      let remainingTimeInSeconds = route.duration;
+      let remainingTimeInMinutes = Math.floor(remainingTimeInSeconds / 60);
+      let remainingTimeInSecs = remainingTimeInSeconds % 60;
+      this.timerTarget.innerText = `${remainingTimeInMinutes}m ${remainingTimeInSecs}s`;
+
+
+      let timerInterval = setInterval(() => {
+        remainingTimeInSeconds--;
+        remainingTimeInMinutes = Math.floor(remainingTimeInSeconds / 60);
+        remainingTimeInSecs = remainingTimeInSeconds % 60;
+        this.timerTarget.innerText = `${remainingTimeInMinutes}m ${remainingTimeInSecs}s`;
+
+        if (remainingTimeInSeconds <= 0) {
+          clearInterval(timerInterval);
+          this.linkTarget.classList.remove("end-link");
+          this.linkTarget.classList.add("end-link-show");
+          this.timerTarget.innerText = '0m 0s';
+          fetch("/danger_text", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': document.getElementsByName('csrf-token')[0].content,
+            }
+          })
+            .then(response => response.json)
+            .then(data => console.log(data))
+            .catch(error => console.log(error))
+        }
+      }, 1000);
 
       // console.log(stepDurations)
       let ETA = Math.round(route.duration )
@@ -60,20 +90,16 @@ export default class extends Controller {
           this.etaTarget.innerText = ""
           console.dir(this.etaTarget)
           this.etaTarget.innerText = `${Math.round((ETA/60))}`
-
+          steps[index+1].scrollIntoView()
           this.recordData1({
             eta: Math.round((ETA/60)),
           });
-
           if (ETA < 100) {
             this.linkTarget.classList.remove("end-link")
             this.linkTarget.classList.add("end-link-show")
           }
         })
       })
-
-
-
     });
   }
 
@@ -87,7 +113,6 @@ export default class extends Controller {
         Accept: "text/vnd.turbo-stream.html"
       },
       body: JSON.stringify({ checkin: data })
-      // console.log(body)
     })
   }
 
@@ -101,7 +126,6 @@ export default class extends Controller {
         Accept: "text/vnd.turbo-stream.html"
       },
       body: JSON.stringify({ checkin: data })
-      // console.log(body)
     })
   }
 
