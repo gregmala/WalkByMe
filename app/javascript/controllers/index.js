@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import DesignController from "./design_controller"
+application.register("design", DesignController)
+
 import DirectionController from "./direction_controller"
 application.register("direction", DirectionController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MapController from "./map_controller"
+application.register("map", MapController)
