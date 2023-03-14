@@ -1,22 +1,41 @@
+.blue{
+  background-color: #81D6E3;
+}
+
 .img-user-edit {
-  position:absolute;
-  bottom: 0;
-  right: 25%;
+  width:100%;
+  margin: 20px auto;
+
 }
 
 .form-edit-user{
-  width:75vw;
+  width: 75vw;
   margin: 0 auto;
+  padding-top: 20px;
+
+
 }
 
 .container-user-edit{
-
+  width: 390px;
+  overflow: hidden;
+  height: 92vh;
 }
 
-.btn-save-edit-user {
-  background-color: #009473;
-  color: white;
-  padding: 8px;
+
+.btn-edit-user{
+  background-color: #E38481;
   border-radius: 3px;
+  border: 1px solid black;
   text-align: center;
+  width:75vw;
+  margin: 30px auto;
+  height: 40px;
+
+  .text-save-edit-user{
+    text-decoration: none;
+    color: white;
+    font-weight: 300px;
+    font-size: 20px;
+  }
 }

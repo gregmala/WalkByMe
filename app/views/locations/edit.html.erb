@@ -1,5 +1,13 @@
-<%= simple_form_for [current_user,@location] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.submit %>
-<% end %>
+<div class = "container-location-edit blue">
+  <div class = "form-location-edit">
+    <%= simple_form_for [current_user, @location] do |f| %>
+      <%= f.input :name, label: "Label" %>
+      <%= f.input :address, label: "Address", error: 'Address is mandatory, please specify one.' %>
+      <%= f.input :icon, as: :select, collection: { 'Home' => 'fa-house', 'Work' => 'fa-briefcase', 'Restaurant' => 'fa-solid fa-burger' }, label: 'Select an icon:', input_html: { class: 'form-control' }, placeholder: "Please, select one." %>
+      <div class= "text-center-location-edit">
+        <p class= "btn-save-location-edit"><%= f.button :submit, "Update Address" %></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>

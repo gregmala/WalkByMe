@@ -1,5 +1,5 @@
-<div class= "blue">
-  <div class = "background-img-user-show">
+
+  <div class = "container-user-show blue">
     <h1> Hey <%= @user.first_name %>!</h1>
     <div>
     <%= image_tag ("https://res.cloudinary.com/dzb3rykjc/image/upload/v1678704501/Photo_on_01-03-23_at_15.34_zfm3yc.jpg"), class: "profile-picture-user-show"%>
@@ -21,9 +21,12 @@
         <p class ="label-user-show"><strong>Your phone</strong></p>
         <p><%= @user.phone_number %></p>
       </div>
+      <div class="btn-user-show">
+      <%= link_to "Update", edit_user_path, class:"btn-text-user-show" %>
+      </div>
+      <%= image_tag ("https://res.cloudinary.com/dzb3rykjc/image/upload/v1678802604/WalkByMe/Background/profile_image_f9qllg.png"), class: "bottom-picture-user-show" %>
     </div>
-  </div>
-  <button><%= link_to "Update info", edit_user_path %></button>
+
 
 </div>
 <!--

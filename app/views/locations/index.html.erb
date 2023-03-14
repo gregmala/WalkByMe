@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body-icons">
                   <div class="icon-container ml-auto"><%= link_to raw('<i class="fa-solid fa-pen-to-square text-black"></i>'), edit_user_location_path(location.user, location), class: "card-icon" %></div>
-                  <div class="icon-container ml-3"><%= link_to raw('<i class="fa-solid fa-xmark text-black"></i>'), user_location_path(current_user, location), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "card-icon" %></div>
+                  <div class="icon-container ml-3"><%= link_to raw('<i class="fa-solid fa-xmark text-black"></i>'),  method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "card-icon" %></div>
                 </div>
               </div>
             </div>
