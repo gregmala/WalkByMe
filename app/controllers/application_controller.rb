@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  before_action :authenticate_user!, unless: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
 
@@ -15,16 +15,13 @@ class ApplicationController < ActionController::Base
   #   flash[:alert] = "You are not authorized to perform this action."
   #   redirect_to(root_path)
   # end
-  def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
-  end
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:phone_number, :first_name, :last_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:phone_number, :first_name, :last_name, :avatar, :email])
   end
 
   def homesafe_text
@@ -32,7 +29,6 @@ class ApplicationController < ActionController::Base
     authorize @user
     TwilioClient.new.homesafe_text(@user)
     flash[:success] = "Homesafe text sent to #{@user.first_name}!"
-    redirect_to root_path
   end
 
   def danger_text
@@ -40,6 +36,7 @@ class ApplicationController < ActionController::Base
     authorize @user
     TwilioClient.new.danger_text(@user)
     render json: {message: 'success'}
+
   end
 
   # def danger_text
@@ -56,5 +53,11 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
+  def devise_controller?
+    is_a?(DeviseController)
+  end
 
+  def after_sign_out_path_for(resource_or_scope)
+    new_user_registration_path
+  end
 end

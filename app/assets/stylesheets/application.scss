@@ -10,7 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
+@import "pages/users/show";
 
 
 .map {
@@ -28,6 +28,7 @@
   color: black;
   font-size: 50px;
 }
+
 
 .direction-bar {
   display:none !important;
@@ -50,7 +51,12 @@ li.mapbox-directions-step {
   margin-top: 7px;
   padding-top: 2.5px;
 }
+
+
 @import "pages/users/show";
+@import "pages/users/edit";
+
+
 
 
 

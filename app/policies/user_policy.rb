@@ -20,4 +20,8 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     record.id == user.id
   end
+
+  def end_trip?
+    record.id == user.id
+  end
 end

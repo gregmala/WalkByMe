@@ -1,4 +1,5 @@
 class CheckinsController < ApplicationController
+  after_action :homesafe_text, only: :end_trip
 
   def index
     @checkins = policy_scope(Checkin)
@@ -9,6 +10,7 @@ class CheckinsController < ApplicationController
     authorize @checkin
     @checkin.update(can_end_trip: true, status: "Completed")
     @checkin.save
+    #redirect_to root_path
     redirect_to checkins_path
   end
 

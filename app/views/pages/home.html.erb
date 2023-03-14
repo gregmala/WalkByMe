@@ -1,15 +1,42 @@
+<div class="container">
+   <h1 class="titlehomeguy"><strong>Hi <%= current_user.first_name %>, where would you like to go today?</strong></h1>
 
-<h2><%= link_to "Emergency contacts", user_contacts_path(current_user) %></h2>
+  <div class="home__cards-card-big mb-3">
+      <i class="fa-solid fa-map-location"></i>
+      <%= form_with url: checkins_path, method: :post do |form| %>
+          <%= form.submit "Take me home", class: "card-submitbtn" %>
+      <% end %>
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
 
-<h2><%= link_to "Saved Addresses", user_locations_path(current_user) %></h2>
+  <div class="home__cards">
+    <div class="home__cards-card mb-3">
+      <i class="fa-solid fa-people-group icon"></i>
+      <%= link_to "Friends", user_contacts_path(current_user), class: "title" %>
+    </div>
+    <div class=" home__cards-card mb-3">
+      <i class="fa-solid fa-signs-post icon"></i>
+      <%= link_to "Addresses", user_locations_path(current_user), class: "title" %>
+    </div>
+    <div class="home__cards-card mb-3">
+      <i class="fa-solid fa-map-location"></i>
+      <%= form_with url: checkins_path, method: :post do |form| %>
+          <%= form.submit "Custom Route", class: "card-submitbtn" %>
+      <% end %>
+    </div>
+    <div class="home__cards-card mb-3">
+      <i class="fa-solid fa-house-chimney"></i>
+      <%= form_with url: checkins_path, method: :post do |form| %>
+        <%= form.submit "Follow Me", class: "card-submitbtn"%>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-<%= form_with url: checkins_path, method: :post do |form| %>
-  <%= form.submit "Create Checkin" %>
-<% end %>
+
 
 <div data-controller="map" style="width: 400px;"></div>
 
-<%= button_to "I Am Home", homesafe_text_path, method: :post, class: "btn btn-success" %>
 
-<%= button_to "SOS", danger_text_path, method: :post, class: "btn btn-danger" %>
+

@@ -1,28 +1,33 @@
-<div class = "background-img-user-show">
-  <h1> Hey <%= @user.first_name %>!</h1>
-  <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678377319/WalkByMe/profile_picture_sara_xpiwma.jpg" alt="profile_picture">
-  <div class="camera-user-show">
-    <i class="fa fa-camera fa-lg upload-button"></i>
-    <input class="file-upload-user-show" type="file" accept="image/*"/>
+<div class= "blue">
+  <div class = "background-img-user-show">
+    <h1> Hey <%= @user.first_name %>!</h1>
+    <div>
+    <%= image_tag ("https://res.cloudinary.com/dzb3rykjc/image/upload/v1678704501/Photo_on_01-03-23_at_15.34_zfm3yc.jpg"), class: "profile-picture-user-show"%>
+    </div>
+    <div class="camera-user-show">
+      <i class="fa fa-camera fa-lg upload-button"></i>
+      <input class="file-upload-user-show" type="file" accept="image/*"/>
+    </div>
+    <div class="profile-card-user-show">
+      <div class= "profile-card-info-user-show">
+        <p class="label-user-show"><strong>Your name</strong></p>
+        <p><%= @user.first_name %> <%= @user.last_name %></p>
+      </div>
+      <div class= "profile-card-info-user-show">
+        <p class= "label-user-show"><strong>Your email</strong></p>
+        <p><%= @user.email %></p>
+      </div>
+      <div class="profile-card-info-user-show">
+        <p class ="label-user-show"><strong>Your phone</strong></p>
+        <p><%= @user.phone_number %></p>
+      </div>
+    </div>
   </div>
-  <div class="profile-card-user-show">
-    <div class= "profile-card-info-user-show">
-      <p class="label-user-show"><strong>Your name</strong></p>
-      <p><%= @user.first_name %> <%= @user.last_name %></p>
-    </div>
-    <div class= "profile-card-info-user-show">
-      <p class= "label-user-show"><strong>Your email</strong></p>
-      <p><%= @user.email %></p>
-    </div>
-    <div class="profile-card-info-user-show">
-      <p class ="label-user-show"><strong>Your phone</strong></p>
-      <p><%= @user.phone_number %></p>
-    </div>
-  </div>
-</div>
+  <button><%= link_to "Update info", edit_user_path %></button>
 
+</div>
 <!--
-<%= link_to "Update info", edit_user_path  %>
+
 <%= link_to "Delete",
   destroy_user_session_path,
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}

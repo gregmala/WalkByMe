@@ -1,3 +1,68 @@
 // Specific CSS for your home-page
 
 
+.home__cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap:15px;
+
+}
+
+.home__cards-card{
+  background-color: white;
+  border-radius: 5px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  background-color: #81D6E3;
+
+
+  .title{
+    color:black;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 4px;
+  }
+
+  .card-submitbtn{
+    background-color: transparent;
+    border:none;
+    font-size: 10px;
+  }
+}
+
+.titlehomeguy {
+  margin-top: 15px;
+  margin-bottom: 18px;
+  font-size: 35px;
+}
+
+.home__cards-card-big {
+  background-color: white;
+  border-radius: 5px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #81D6E3;
+
+  .title{
+    color:black;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 4px;
+  }
+
+  .card-submitbtn{
+    background-color: transparent;
+    border:none;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}

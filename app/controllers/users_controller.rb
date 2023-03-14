@@ -8,13 +8,19 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     authorize @user
+    # if @user.update(user_params)
+    #   redirect_to @user
+    # end
   end
 
   def update
     @user = current_user
     authorize @user
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -32,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :phone_number, :photo)
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :avatar)
   end
 
 end
