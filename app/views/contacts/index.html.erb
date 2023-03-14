@@ -1,8 +1,99 @@
+<div class="container">
+  <div class="rounded contact-container">
+    <div class="row justify-content-center">
+      <% @contacts.each do |contact| %>
+        <% if contact.user == current_user %>
+          <div class="col-sm-6 col-md-4 mb-3">
+            <div class="cardcontact rounded h-100">
+              <div class="card-body d-flex align-items-center justify-content-between">
+                <div class="card-body-info">
+                  <%= link_to contact.label, user_contact_path(contact.user, contact), class: "card-link" %>
+                </div>
+                <div class="card-body-icons">
+                  <div class="icon-container ml-auto"><%= link_to raw('<i class="fa-solid fa-pen-to-square text-black"></i>'), edit_user_contact_path(contact.user, contact), class: "card-icon" %></div>
+                  <div class="icon-container ml-3"><%= link_to raw('<i class="fa-solid fa-xmark text-black"></i>'), user_contact_path(current_user, contact), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "card-icon" %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
-<% @contacts.each do |contact| %>
-<% if contact.user == current_user %>
-  <h1><%= link_to contact.label, user_contact_path(contact.user, contact) %></li>
-<% end %>
-<% end %>
+    <div class="row justify-content-center">
+      <div class="col-sm-6 col-md-4">
+        <%= link_to "Add new contact", new_user_contact_path, class: "btn btn-success btn-block rounded" %>
+      </div>
+    </div>
 
-<p><%= link_to "Add new contact", new_user_contact_path %></p>
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-6 logo-container-contact">
+
+        <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678790466/Il_mio_progetto_2_400x400_as3mvj.png" alt="WalkByMe Logo" class="logo-imagee">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Custom CSS for WalkByMe location page */
+.container{
+
+  min-height: 100vh;
+  background-color: #81D6E3;
+}
+
+
+  .location-container {
+    margin-bottom: 2rem;
+  }
+
+
+  .card-body-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon-container {
+    font-size: 24px;
+    color: #666;
+    margin-right: 5px; /* Add margin to create space between icon and text */
+  }
+
+  .icon-container i {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+  }
+
+  .card-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .btn-block {
+    display: block;
+  }
+
+  .card-icon {
+    color: black;
+    text-decoration: none;
+  }
+
+  .card-body {
+  background-color: #fff;
+  border-radius: 50px;
+  margin-top: 15px;
+  }
+
+
+  /* Custom CSS for WalkByMe logo */
+ .logo-container-contact {
+  max-width: 100vh;
+  max-height: 100vh;
+  margin-top: 400px;
+
+  }
+  </style>
