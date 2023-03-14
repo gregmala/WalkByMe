@@ -1,0 +1,27 @@
+.slide{
+  width: 390px;
+  overflow: hidden;
+  height: 92vh;
+  background-color: #81D6E3;
+
+  h2{
+    margin: 200px auto;
+    text-align: center;
+    width: 75%;
+  //   size: 35px;
+  }
+
+  h3{
+    margin: 0 auto;
+    text-align: center;
+    width: 75%;
+
+  }
+
+  p{
+    margin: 5px 5px;
+    text-align: right;
+    text-decoration: none;
+    color: white;
+  }
+}

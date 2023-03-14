@@ -14,6 +14,7 @@
 @import "pages/users/edit";
 @import "pages/locations/new";
 @import "pages/locations/edit";
+@import "pages/carousel/index";
 
 
 .map {
@@ -128,4 +129,3 @@ display: none !important
 .mapboxgl-ctrl-attrib.mapboxgl-compact {
   display: none !important;
 }
-

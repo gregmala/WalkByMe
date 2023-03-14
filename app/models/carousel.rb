@@ -1,0 +1,2 @@
+class Carousel < ApplicationRecord
+end
