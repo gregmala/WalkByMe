@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, unless: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
 
   include Pundit::Authorization
 
@@ -34,7 +35,17 @@ class ApplicationController < ActionController::Base
     @user = current_user
     authorize @user
     TwilioClient.new.danger_text(@user)
+    render json: {message: 'success'}
+
   end
+
+  # def danger_text
+  #   @user = current_user
+  #   authorize @user
+  #   user_data = JSON.parse(request.body.read)
+  #   TwilioClient.new.danger_text(@user, user_data)
+  # end
+
 
   private
 

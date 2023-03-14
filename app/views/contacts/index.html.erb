@@ -1,8 +1,110 @@
+<div class="container">
+  <div class="rounded contact-container">
+    <div class="row justify-content-center">
+      <% @contacts.each do |contact| %>
+        <% if contact.user == current_user %>
+          <div class="col-sm-6 col-md-4 mb-3">
+            <div class="cardcontact h-100">
+              <div class="card-body d-flex align-items-center justify-content-between">
+                <div class="card-body-info">
+                  <%= link_to contact.label, user_contact_path(contact.user, contact), class: "card-link" %>
+                </div>
+                <div class="card-body-icons">
+                  <div class="icon-container ml-auto"><%= link_to raw('<i class="fa-solid fa-pen-to-square text-black"></i>'), edit_user_contact_path(contact.user, contact), class: "card-icon" %></div>
+                  <div class="icon-container ml-3"><%= link_to raw('<i class="fa-solid fa-xmark text-black"></i>'), user_contact_path(current_user, contact), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "card-icon" %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
-<% @contacts.each do |contact| %>
-<% if contact.user == current_user %>
-  <h1><%= link_to contact.label, user_contact_path(contact.user, contact) %></li>
-<% end %>
-<% end %>
+    <div class="row justify-content-center">
+      <div class="col-sm-6 col-md-4">
+       <%= link_to "Add new contact", new_user_contact_path, class: "btn btn-primary", style: "background-color: #E38481; font-weight: bold; border: 0; border: 1px solid black;" %>
 
-<p><%= link_to "Add new contact", new_user_contact_path %></p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-6 logo-container-contact">
+
+        <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678806379/Group_33_ltc0p1.png" alt="WalkByMe Logo" class="logo-imagee">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Custom CSS for WalkByMe location page */
+.container{
+
+  height: 92vh;
+  background-color: #81D6E3;
+  overflow: hidden;
+}
+
+.btn-primary {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+
+
+  .location-container {
+    margin-bottom: 2rem;
+  }
+
+
+  .card-body-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon-container {
+    font-size: 24px;
+    color: #666;
+    margin-right: 5px; /* Add margin to create space between icon and text */
+  }
+
+  .icon-container i {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+  }
+
+  .card-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  .btn-block {
+    display: block;
+  }
+
+  .card-icon {
+    color: black;
+    text-decoration: none;
+  }
+
+  .card-body {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 15px;
+  border: 1px solid black;
+  }
+
+
+  /* Custom CSS for WalkByMe logo */
+ .logo-container-contact {
+  max-width: 100vh;
+  max-height: 100vh;
+  margin-top: 158px;
+  transform: translateX(-2.9%);
+
+  }
+  </style>

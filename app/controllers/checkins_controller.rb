@@ -29,6 +29,7 @@ class CheckinsController < ApplicationController
   end
 
   def update
+    # raise
     @checkin = Checkin.find(params[:id])
     authorize @checkin
     @checkin.update(checkin_params)
@@ -39,6 +40,6 @@ class CheckinsController < ApplicationController
 
 
   def checkin_params
-    params.require(:checkin).permit(:estimated_time_for_arrival, :destination_latitude, :destination_longitude, :can_end_trip)
+    params.require(:checkin).permit(:estimated_time_for_arrival, :destination_latitude, :destination_longitude, :can_end_trip, :eta)
   end
 end
