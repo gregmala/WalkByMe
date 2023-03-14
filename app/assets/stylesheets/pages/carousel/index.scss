@@ -4,24 +4,169 @@
   height: 92vh;
   background-color: #81D6E3;
 
+  // h2{
+  //   position: absolute;
+  //   top: 100px;
+  //   right: 40px;
+  //   margin: 0 auto;
+  //   width: 75%;
+  //   font-size: 40px;
+  // }
+
+  // h3{
+  //   margin: 0 auto;
+  //   text-align: center;
+  //   width: 75%;
+  //   position: absolute;
+  //   bottom: 100px;
+  //   right: 40px;
+
+  // }
+
+  // p{
+  //   margin: 5px 5px;
+  //   text-align: right;
+  //   text-decoration: none;
+  //   color: white;
+
+}
+
+.celebrate{
+
   h2{
-    margin: 200px auto;
-    text-align: center;
+    position: absolute;
+    top: 60px;
+    right: 40px;
+    margin: 0 auto;
     width: 75%;
-  //   size: 35px;
+    font-size: 40px;
   }
 
   h3{
     margin: 0 auto;
     text-align: center;
     width: 75%;
+    position: absolute;
+    bottom: 100px;
+    right: 35px;
+    font-size: 30px;
 
   }
 
-  p{
-    margin: 5px 5px;
-    text-align: right;
-    text-decoration: none;
-    color: white;
+  img{
+    position: absolute;
+    bottom: 200px;
+    width: 80vw;
+    padding: 3px;
   }
+}
+
+.sign-in{
+
+  h2{
+    position: absolute;
+    top: 60px;
+    left: 2px;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  img{
+    position: absolute;
+    bottom: 200px;
+    right: 10px;
+  }
+}
+
+.people-linked{
+
+  h2{
+    position: absolute;
+    top: 60px;
+    left: 2px;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+  }
+
+  img{
+    position: absolute;
+    top: 210px;
+    width: 80%;
+    padding: 4px;
+  }
+
+  h3{
+    margin: 0 auto;
+    text-align: center;
+    width: 75%;
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    font-size: 30px;
+
+  }
+}
+
+.address{
+
+  h2{
+    position: absolute;
+    top: 60px;
+    left: 2px;
+    margin: 0 auto;
+    width: 100vw;
+    font-size: 35px;
+    text-align: center;
+  }
+
+  img{
+    bottom: 0px;
+    padding: 4px;
+  }
+
+  h3{
+    margin: 0 auto;
+    text-align: center;
+    width: 75%;
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    font-size: 30px;
+
+  }
+}
+
+.stranger{
+
+  h2{
+    position: absolute;
+    top: 60px;
+    left: 2px;
+    margin: 0 auto;
+    width: 100vw;
+    font-size: 35px;
+    text-align: center;
+  }
+
+  img{
+    position: absolute;
+    top: 170px;
+    width: auto;
+  }
+
+  h3{
+    margin: 0 auto;
+    text-align: center;
+    width: 75%;
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    font-size: 30px;
+  }
+
+
 }
