@@ -41,7 +41,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     authorize @contact
-    redirect_to user_contacts_pacth(current_user)
+    redirect_to user_contacts_path(current_user)
   end
 
   private
