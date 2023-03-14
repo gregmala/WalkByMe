@@ -17,7 +17,7 @@ class LocationsController < ApplicationController
   def update
     authorize @location
     @location.update(location_params)
-    redirect_to user_location_path(@location.user, @location)
+    redirect_to user_locations_path(current_user)
   end
 
   def new
