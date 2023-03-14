@@ -1,6 +1,28 @@
-<%= simple_form_for [current_user, @location] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :icon, as: :select, collection: { 'Home' => 'fa-house', 'Work' => 'fa-briefcase', 'Restaurant' => 'fa-solid fa-burger' }, label: 'Select an icon', input_html: { class: 'form-control' } %>
-  <%= f.submit %>
+<%= simple_form_for [current_user, @location], html: { class: 'container text-center rounded', style: 'background-color: #81D6E3; padding: 2rem;' } do |f| %>
+  <div class="form-group">
+    <%= f.input :name, input_html: { class: 'form-control', style: 'border: 1px solid black;' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :address, input_html: { class: 'form-control', style: 'border: 1px solid black;' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :icon, as: :select, collection: { 'Home' => 'fa-house', 'Work' => 'fa-briefcase', 'Restaurant' => 'fa-solid fa-burger' }, label: 'Select an icon', input_html: { class: 'form-control', style: 'border: 1px solid black;' } %>
+  </div>
+  <%= f.button :submit, class: 'btn btn-primary', style: 'background-color: #E38481; font-weight: bold; border: 0; border: 1px solid black;' %>
 <% end %>
+
+<style>
+.container {
+  height: 92vh;
+  overflow: hidden;
+}
+
+.form-label {
+  font-weight: 800;
+}
+
+.form-control:focus {
+  border-color: black;
+  box-shadow: none;
+}
+</style>
