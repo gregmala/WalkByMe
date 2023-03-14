@@ -1,5 +1,25 @@
-<%= simple_form_for [current_user, @contact] do |f| %>
-  <%= f.input :label %>
-  <%= f.input :phone_number %>
-  <%= f.submit %>
-<% end %>
+<div class="container text-center" style="background-color: #81D6E3;">
+  <%= simple_form_for [current_user, @contact] do |f| %>
+    <%= f.input :label, input_html: {style: 'border: 1px solid black;'} %>
+    <%= f.input :phone_number, input_html: {style: 'border: 1px solid black;'} %>
+    <%= f.button :submit, class: 'btn btn-primary', style: 'background-color: #E38481; font-weight: bold; border: 0; border: 1px solid black;' %>
+  <% end %>
+</div>
+
+<style>
+.container{
+
+  height: 92vh;
+  background-color: #81D6E3;
+  overflow: hidden;
+}
+
+
+.form-label {
+  margin-top: 12px;
+  margin-bottom: 0.5rem;
+  padding-top: 8px;
+  font-weight: 800;
+}
+
+</style>

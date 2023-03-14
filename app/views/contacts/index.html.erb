@@ -4,7 +4,7 @@
       <% @contacts.each do |contact| %>
         <% if contact.user == current_user %>
           <div class="col-sm-6 col-md-4 mb-3">
-            <div class="cardcontact rounded h-100">
+            <div class="cardcontact h-100">
               <div class="card-body d-flex align-items-center justify-content-between">
                 <div class="card-body-info">
                   <%= link_to contact.label, user_contact_path(contact.user, contact), class: "card-link" %>
@@ -22,14 +22,15 @@
 
     <div class="row justify-content-center">
       <div class="col-sm-6 col-md-4">
-        <%= link_to "Add new contact", new_user_contact_path, class: "btn btn-success btn-block rounded" %>
+       <%= link_to "Add new contact", new_user_contact_path, class: "btn btn-primary", style: "background-color: #E38481; font-weight: bold; border: 0; border: 1px solid black;" %>
+
       </div>
     </div>
 
     <div class="row justify-content-center mt-3">
       <div class="col-md-6 logo-container-contact">
 
-        <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678790466/Il_mio_progetto_2_400x400_as3mvj.png" alt="WalkByMe Logo" class="logo-imagee">
+        <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678806379/Group_33_ltc0p1.png" alt="WalkByMe Logo" class="logo-imagee">
 
       </div>
     </div>
@@ -40,8 +41,15 @@
   /* Custom CSS for WalkByMe location page */
 .container{
 
-  min-height: 100vh;
+  height: 92vh;
   background-color: #81D6E3;
+  overflow: hidden;
+}
+
+.btn-primary {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
 }
 
 
@@ -71,6 +79,7 @@
     color: #333;
     text-decoration: none;
     font-weight: bold;
+    margin-left: 10px;
   }
 
   .btn-block {
@@ -84,8 +93,9 @@
 
   .card-body {
   background-color: #fff;
-  border-radius: 50px;
+  border-radius: 5px;
   margin-top: 15px;
+  border: 1px solid black;
   }
 
 
@@ -93,7 +103,8 @@
  .logo-container-contact {
   max-width: 100vh;
   max-height: 100vh;
-  margin-top: 400px;
+  margin-top: 158px;
+  transform: translateX(-2.9%);
 
   }
   </style>
