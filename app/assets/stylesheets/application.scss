@@ -188,16 +188,30 @@ button.end-link-show {
 .timer {
   z-index: 1000;
   position: relative;
-  top: 544px;
+  top: 532px;
   font-weight: bolder;
   font-size: 17px;
-  left: 278px;
-  width: fit-content;
+  left: 271px;
+  width: 100px;
   margin: 0;
   background: green;
   padding: 8px 13px;
   border-radius: 3px;
   font-weight: 400;
+  color: white;
+  font-weight: bold;
+  height:37px;
+  overflow: hidden;
+}
+
+.button .btn .btn-danger {
+  font-weight: bold !important;
 }
 
 
+.homepage-map {
+  width: 94vw !important;
+  height: 32vh;
+  left: 12px;
+  border-radius: 5px !important;
+}
