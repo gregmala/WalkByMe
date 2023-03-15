@@ -8,15 +8,21 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css">
+
+
+
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet" />
-
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
-     <%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
-
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
     <%= javascript_include_tag "/assets/application", "data-turbo-track": "reload", defer: true %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Roboto:wght@900&display=swap" rel="stylesheet">
 
   </head>
 
