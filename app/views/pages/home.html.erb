@@ -1,8 +1,16 @@
 <div class="container">
-   <h1 class="titlehomeguy"><strong>Hi <%= current_user.first_name %>, where would you like to go today?</strong></h1>
+
+<a href="<%= carousel_index_path(current_user) %>">
+  <div class="map-image-container">
+    <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678888591/Screenshot_2023-03-15_at_14.42.58_1_wnxfng.png" alt="Map image">
+  </div>
+</a>
+
+
+  <div data-controller="map" class= "homepage-map"></div>
 
   <div class="home__cards-card-big mb-3">
-      <i class="fa-solid fa-map-location"></i>
+      <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678879801/house_rxooi3.png" alt="location icon" width="30px" height="30px">
       <%= form_with url: checkins_path, method: :post do |form| %>
           <%= form.submit "Take me home", class: "card-submitbtn" %>
       <% end %>
@@ -11,116 +19,24 @@
 
   <div class="home__cards">
     <div class="home__cards-card mb-3">
-      <i class="fa-solid fa-people-group icon"></i>
+      <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678879798/search_xfgdvl.png" alt="people icon" >
       <%= link_to "Friends", user_contacts_path(current_user), class: "title" %>
     </div>
     <div class="home__cards-card mb-3">
-      <i class="fa-solid fa-signs-post icon"></i>
+      <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678879798/panels_diwgsv.png" alt="address icon" >
       <%= link_to "Addresses", user_locations_path(current_user), class: "title" %>
     </div>
     <div class="home__cards-card mb-3">
-      <i class="fa-solid fa-map-location"></i>
+      <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678879800/place_twnsep.png" alt="custom route icon">
       <%= form_with url: checkins_path, method: :post do |form| %>
           <%= form.submit "Custom Route", class: "card-submitbtn" %>
       <% end %>
     </div>
     <div class="home__cards-card mb-3">
-      <i class="fa-solid fa-house-chimney"></i>
+      <img src="https://res.cloudinary.com/dzb3rykjc/image/upload/v1678890604/walking_ve3kfy.png" alt="follow me icon" >
       <%= form_with url: checkins_path, method: :post do |form| %>
         <%= form.submit "Follow Me", class: "card-submitbtn"%>
       <% end %>
     </div>
   </div>
 </div>
-
-
-<div data-controller="map" class= "homepage-map"></div>
-  <div class="home-help-btn">
-    <%# <i class="fa-solid fa-question"></i> %>
-    <%= link_to "?", carousel_index_path(current_user), class: "home-help-icon" %>
-  </div>
-</div>
-
-
-<%# <script>
-$(function() {
-  // Set up variables
-  var container = $(".container");
-  var draggableElements = $(".draggable");
-  var mapElement = $(".homepage-map");
-  var helpIcon = $(".home-help-icon");
-
-  // Set up draggable elements
-  draggableElements.draggable({
-    containment: container,
-    cursor: "move",
-    opacity: 0.5,
-    snap: ".draggable",
-    snapMode: "inner",
-    stack: ".draggable",
-    start: function(event, ui) {
-      $(this).addClass("dragging");
-    },
-    stop: function(event, ui) {
-      $(this).removeClass("dragging");
-    }
-  });
-
-  // Set up droppable elements
-  draggableElements.droppable({
-    accept: ".draggable",
-    tolerance: "intersect",
-    over: function(event, ui) {
-      $(this).addClass("hover");
-    },
-    out: function(event, ui) {
-      $(this).removeClass("hover");
-    },
-    drop: function(event, ui) {
-      var draggable = ui.draggable;
-      var droppable = $(this);
-      var draggableOffset = draggable.offset();
-      var droppableOffset = droppable.offset();
-
-      // Swap positions of draggable and droppable elements
-      draggable.insertBefore(droppable).css({
-        top: droppableOffset.top - container.offset().top,
-        left: droppableOffset.left - container.offset().left
-      });
-      droppable.insertAfter(draggable).css({
-        top: draggableOffset.top - container.offset().top,
-        left: draggableOffset.left - container.offset().left
-      });
-
-      // Remove hover and dragging classes
-      draggable.removeClass("dragging");
-      droppable.removeClass("hover");
-
-      // Re-order the elements based on the new order
-      draggableElements = $(".draggable");
-      draggableElements.each(function(index) {
-        $(this).css({
-          top: 0,
-          left: 0
-        }).appendTo($(this).parent());
-      });
-    }
-  });
-
-  // Set up map element
-  mapElement.attr("data-controller", "map");
-
-  // Set up help icon
-  helpIcon.attr("href", carousel_index_path(current_user));
-
-  // Set up dragstop event to re-order elements
-  container.on("dragstop", function(event, ui) {
-    var draggableElements = $(".draggable");
-    draggableElements.each(function(index) {
-      $(this).appendTo($(this).parent());
-    });
-  });
-}); %>
-
-
-</script>
