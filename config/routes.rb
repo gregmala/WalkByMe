@@ -6,12 +6,14 @@ Rails.application.routes.draw do
     resources :locations
   end
 
+  resources :carousel, only: [:index]
 
   resources :checkins, only: [:index,:create, :show, :update] do
     member do
       patch "end_trip"
     end
   end
+
 
 
 

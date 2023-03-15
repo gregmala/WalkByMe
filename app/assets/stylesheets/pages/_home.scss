@@ -9,7 +9,6 @@
 }
 
 .home__cards-card{
-  background-color: white;
   border-radius: 5px;
   display:flex;
   flex-direction: column;
@@ -41,7 +40,6 @@
 }
 
 .home__cards-card-big {
-  background-color: white;
   border-radius: 5px;
   display:flex;
   justify-content: center;
@@ -64,5 +62,30 @@
     border:none;
     font-size: 20px;
     font-weight: bold;
+  }
+}
+
+
+.home-help-container{
+  margin: 420px 320px;
+}
+
+.home-help-btn{
+  background-color: #81D6E3;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .home-help-icon{
+    color:black;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 4px;
+
   }
 }
