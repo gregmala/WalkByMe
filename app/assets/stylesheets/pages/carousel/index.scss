@@ -3,6 +3,7 @@
   overflow: hidden;
   height: 92vh;
   background-color: #81D6E3;
+  font-family: 'Public Sans', sans-serif;
 
   // h2{
   //   position: absolute;
@@ -40,6 +41,7 @@
     margin: 0 auto;
     width: 75%;
     font-size: 40px;
+    font-family: 'Public Sans', sans-serif;
   }
 
   h3{
@@ -50,6 +52,7 @@
     bottom: 100px;
     right: 35px;
     font-size: 30px;
+    font-family: 'Public Sans', sans-serif;
 
   }
 
@@ -71,13 +74,21 @@
     width: 100%;
     font-size: 40px;
     text-align: center;
+    font-family: 'Public Sans', sans-serif;
   }
 
   img{
     position: absolute;
-    bottom: 200px;
-    right: 10px;
+    top: 220px;
+    height: 55%;
+    right: -63px;
   }
+
+  // img{
+  //   position: absolute;
+  //   bottom: 200px;
+  //   right: 10px;
+  // }
 }
 
 .people-linked{
@@ -90,23 +101,26 @@
     width: 100%;
     font-size: 35px;
     text-align: center;
+    font-family: 'Public Sans', sans-serif;
   }
 
   img{
     position: absolute;
-    top: 210px;
-    width: 80%;
-    padding: 4px;
+    top: 220px;
+    height: 45%;
+    left: -130px;
+
+
   }
 
   h3{
-    margin: 0 auto;
     text-align: center;
     width: 75%;
     position: absolute;
     bottom: 100px;
     right: 40px;
     font-size: 30px;
+    font-family: 'Public Sans', sans-serif;
 
   }
 }
@@ -121,22 +135,24 @@
     width: 100vw;
     font-size: 35px;
     text-align: center;
+    font-family: 'Public Sans', sans-serif;
   }
 
   img{
-    bottom: 0px;
-    padding: 4px;
+    position: absolute;
+    top: 170px;
+    height: 50%;
+    left: 48px;
   }
 
   h3{
-    margin: 0 auto;
     text-align: center;
     width: 75%;
     position: absolute;
     bottom: 100px;
     right: 40px;
     font-size: 30px;
-
+    font-family: 'Public Sans', sans-serif;
   }
 }
 
@@ -150,6 +166,7 @@
     width: 100vw;
     font-size: 35px;
     text-align: center;
+    font-family: 'Public Sans', sans-serif;
   }
 
   img{
@@ -166,8 +183,8 @@
     bottom: 100px;
     right: 40px;
     font-size: 30px;
+    font-family: 'Public Sans', sans-serif;
   }
 
 
 }
-
