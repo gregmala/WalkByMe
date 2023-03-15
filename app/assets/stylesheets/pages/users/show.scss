@@ -2,26 +2,30 @@
   background-color: #81D6E3;
 }
 
-.background-img-user-show {
-  background-image: url("https://res.cloudinary.com/dzb3rykjc/image/upload/v1678397557/WalkByMe/Background/background_mllwy7.png");
-  background-size: cover;
-  height: 800px;
+.profile-picture-user-show{
+  border-radius: 50%;
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: 10px auto;
+  border: 8px solid white;
+}
 
-  .profile-picture-user-show{
-    border-radius: 50%;
-    object-fit: cover;
-    height: 100px;
-    width: 100px;
-    display: block;
-    margin: auto;
-    border: 5px solid white;
-  }
+.container-user-show {
+  width: 390px;
+  overflow: hidden;
+  height: 92vh;
 
   h1{
     text-align: center;
-    font-weight: 200px;
+    padding-top: 15px;
+    color: white;
+    font-size: 50px;
   }
 }
+
+
 
 .camera-user-show{
   i{
@@ -38,11 +42,12 @@
 }
 
 .profile-card-info-user-show{
-  background-color: #81D6E3;
-  // #17BEBB;
+  background-color: white;
   border-radius: 3px;
   width: 75vw;
   margin: 10px;
+  border: 1px solid black;
+
 
   .label{
     margin: 2px 8px;
@@ -51,7 +56,14 @@
   p{
     font-size: 18px;
     margin: 2px 8px;
+  ;
+
   }
+}
+
+.bottom-picture-user-show{
+  margin: 20px; 
+  width: 100%;
 }
 
 .file-upload-user-show {
@@ -60,11 +72,28 @@
 
 .camera-user-show {
   position: absolute;
-  top: 200px;
+  top: 220px;
   right: 145px;
   color: #666666;
 
   i{
     font-size: larger;
+  }
+}
+
+.btn-user-show{
+  background-color: #E38481;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid black;
+  text-align: center;
+  width:75vw;
+  margin: 8px auto;
+
+  .btn-text-user-show{
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
   }
 }

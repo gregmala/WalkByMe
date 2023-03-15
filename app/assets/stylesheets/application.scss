@@ -11,6 +11,9 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/users/show";
+@import "pages/users/edit";
+@import "pages/locations/new";
+@import "pages/locations/edit";
 
 
 .map {
@@ -28,7 +31,6 @@
   color: black;
   font-size: 50px;
 }
-
 
 .direction-bar {
   display:none !important;
@@ -129,6 +131,7 @@ display: none !important
   display: none !important;
 }
 
+
 button.btn.btn-danger {
   position: absolute;
   bottom: 50px;
@@ -194,3 +197,4 @@ button.end-link-show {
   border-radius: 3px;
   font-weight: 400;
 }
+

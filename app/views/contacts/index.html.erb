@@ -11,7 +11,12 @@
                 </div>
                 <div class="card-body-icons">
                   <div class="icon-container ml-auto"><%= link_to raw('<i class="fa-solid fa-pen-to-square text-black"></i>'), edit_user_contact_path(contact.user, contact), class: "card-icon" %></div>
-                  <div class="icon-container ml-3"><%= link_to raw('<i class="fa-solid fa-xmark text-black"></i>'), user_contact_path(current_user, contact), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "card-icon" %></div>
+                    <%= link_to user_contact_path(current_user, contact),
+                              method: :delete,
+                              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                              class: "card-icon" do %>
+                      <i class="fa-solid fa-xmark text-black"></i>
+                    <% end %>
                 </div>
               </div>
             </div>
@@ -107,4 +112,13 @@
   transform: translateX(-2.9%);
 
   }
+
+  .fa-xmark {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.fa-pen-to-square {
+  font-size: 18px;
+}
   </style>
