@@ -2,12 +2,12 @@
 <div data-controller="design" data-design-target = "search"></div>
 <div data-controller="direction" class="map" data-direction-id-value="<%= @checkin.id %>" data-direction-user-value="<%= @checkin.user %>">
   <%= button_to "End Trip", end_trip_checkin_path(@checkin), method: :patch, class: "end-link", data: {direction_target: "link"} %>
-  <p data-direction-target="eta"></p>
+  <div class="map-eta" style="display:none">
+    <p style="font-weight:bold">ETA:</p>
+    <p data-direction-target="eta"></p>
+    <p>min</p>
+
+  </div>
   <p class="timer" data-direction-target="timer"></p>
 </div>
-
-  <div data-controller="direction" class="map" data-direction-id-value="<%= @checkin.id %>">
-     <%= button_to "I am home", end_trip_checkin_path(@checkin), method: :patch, class: "end-link", data: {direction_target: "link"} %>
-  </div>
   <%= button_to "SOS", danger_text_path, method: :post, class: "btn btn-danger" %>
-

@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = ['link','eta','timer']
   static values = {id: Number, user: Object}
   connect() {
-    console.log("hi")
     mapboxgl.accessToken = "pk.eyJ1IjoicGllcnJlamViYXJhIiwiYSI6ImNsZHloNXl5bTA3MWIzdnM1amNqbmFkanUifQ.k9o5mCT3bt0X6C-b6JPskA";
     this.map = new mapboxgl.Map({
       container: this.element,
@@ -60,8 +59,8 @@ export default class extends Controller {
       let timerInterval = setInterval(() => {
         remainingTimeInSeconds--;
         remainingTimeInMinutes = Math.floor(remainingTimeInSeconds / 60);
-        remainingTimeInSecs = remainingTimeInSeconds % 60;
-        this.timerTarget.innerText = `${remainingTimeInMinutes}m ${remainingTimeInSecs}s`;
+        remainingTimeInSecs = Math.round((remainingTimeInSeconds % 60));
+        this.timerTarget.innerHTML = `<i class="fa-solid fa-hourglass-clock"></i>${remainingTimeInMinutes}m ${remainingTimeInSecs}s`;
 
         if (remainingTimeInSeconds <= 0) {
           clearInterval(timerInterval);
@@ -78,6 +77,11 @@ export default class extends Controller {
             .then(response => response.json)
             .then(data => console.log(data))
             .catch(error => console.log(error))
+        }
+
+        if (remainingTimeInMinutes < 5) {
+          mapTimer = document.querySelector(".timer")
+          mapTimer.style.backgroundColor = "red"
         }
       }, 1000);
 
@@ -98,6 +102,8 @@ export default class extends Controller {
             this.linkTarget.classList.remove("end-link")
             this.linkTarget.classList.add("end-link-show")
           }
+          const eta = document.querySelector(".map-eta")
+          eta.style.display = "flex"
         })
       })
     });
