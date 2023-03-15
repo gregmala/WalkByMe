@@ -3,6 +3,8 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 import mapboxgl from "mapbox-gl"
+import 'jquery-ui'
+//=require jquery-ui
 
 // mapboxgl.accessToken = 'pk.eyJ1IjoicGllcnJlamViYXJhIiwiYSI6ImNsZHloNXl5bTA3MWIzdnM1amNqbmFkanUifQ.k9o5mCT3bt0X6C-b6JPskA';
 // const map = new mapboxgl.Map({

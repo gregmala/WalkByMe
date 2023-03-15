@@ -10,8 +10,7 @@ class CheckinsController < ApplicationController
     authorize @checkin
     @checkin.update(can_end_trip: true, status: "Completed")
     @checkin.save
-    #redirect_to root_path
-    redirect_to checkins_path
+    redirect_to root_path
   end
 
   def show

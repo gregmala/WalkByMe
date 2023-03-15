@@ -41,8 +41,8 @@
   overflow-y: scroll;
   position: absolute;
   bottom: 692px;
-  color: white;
-  background-color: #E3B581;
+  color: #757373;
+  background-color: #f5f4f2;
   font-size: 20px;
   width: 95vw;
   height: 55px;
@@ -188,16 +188,33 @@ button.end-link-show {
 .timer {
   z-index: 1000;
   position: relative;
-  top: 544px;
+  top: 532px;
   font-weight: bolder;
   font-size: 17px;
-  left: 278px;
-  width: fit-content;
+  left: 271px;
+  width: 100px;
   margin: 0;
   background: green;
   padding: 8px 13px;
   border-radius: 3px;
   font-weight: 400;
+  color: white;
+  font-weight: bold;
+  height:37px;
+  overflow: hidden;
+  text-align: center !important;
 }
 
+.button .btn .btn-danger {
+  font-weight: bold !important;
+}
+
+
+.homepage-map {
+  width: 94vw !important;
+  height: 20vh;
+  /* left: 12px; */
+  border-radius: 5px !important;
+  margin: auto;
+}
 

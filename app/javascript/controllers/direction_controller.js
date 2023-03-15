@@ -6,16 +6,17 @@ export default class extends Controller {
   static targets = ['link','eta','timer']
   static values = {id: Number, user: Object}
   connect() {
+    console.log("hello")
     mapboxgl.accessToken = "pk.eyJ1IjoicGllcnJlamViYXJhIiwiYSI6ImNsZHloNXl5bTA3MWIzdnM1amNqbmFkanUifQ.k9o5mCT3bt0X6C-b6JPskA";
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-74, 40.7128],
       zoom: 12,
-
     });
     this.initializeMap();
     console.dir(this.timerTarget);
+
   }
 
   initializeMap() {
@@ -60,7 +61,7 @@ export default class extends Controller {
         remainingTimeInSeconds--;
         remainingTimeInMinutes = Math.floor(remainingTimeInSeconds / 60);
         remainingTimeInSecs = Math.round((remainingTimeInSeconds % 60));
-        this.timerTarget.innerHTML = `<i class="fa-solid fa-hourglass-clock"></i>${remainingTimeInMinutes}m ${remainingTimeInSecs}s`;
+        this.timerTarget.innerHTML = `${remainingTimeInMinutes}m ${remainingTimeInSecs}s`;
 
         if (remainingTimeInSeconds <= 0) {
           clearInterval(timerInterval);
@@ -80,7 +81,7 @@ export default class extends Controller {
         }
 
         if (remainingTimeInMinutes < 5) {
-          mapTimer = document.querySelector(".timer")
+          const mapTimer = document.querySelector(".timer")
           mapTimer.style.backgroundColor = "red"
         }
       }, 1000);
@@ -94,7 +95,7 @@ export default class extends Controller {
           this.etaTarget.innerText = ""
           console.dir(this.etaTarget)
           this.etaTarget.innerText = `${Math.round((ETA/60))}`
-          steps[index+1].scrollIntoView()
+          steps[index+1].scrollIntoView({behavior: "smooth"})
           this.recordData1({
             eta: Math.round((ETA/60)),
           });
