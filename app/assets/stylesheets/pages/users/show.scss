@@ -22,6 +22,8 @@
     padding-top: 15px;
     color: white;
     font-size: 50px;
+    font-family: 'Noto', sans-serif;
+    font-weight: bold;
   }
 }
 
@@ -47,6 +49,7 @@
   width: 75vw;
   margin: 10px;
   border: 1px solid black;
+  font-family: 'Noto',sans-serif !important;
 
 
   .label{
@@ -62,7 +65,7 @@
 }
 
 .bottom-picture-user-show{
-  margin: 20px; 
+  margin: 20px;
   width: 100%;
 }
 
@@ -93,7 +96,29 @@
   .btn-text-user-show{
     text-decoration: none;
     color: white;
-    font-weight: 300;
+    font-weight: bold;
     font-size: 20px;
+    font-family: 'Noto',sans-serif !important ;
   }
+}
+
+.ml9 {
+  position: relative;
+  font-weight: 200;
+  font-size: 4em;
+}
+
+.ml9 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml9 .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+  line-height: 1em;
 }

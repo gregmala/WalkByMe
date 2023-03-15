@@ -49,6 +49,8 @@
   border-radius: 5px;
   text-align: center;
   left: 12px;
+  font-family: 'Noto', sans-serif;
+  font-weight: bold;
 }
 
 li.mapbox-directions-step {
@@ -77,6 +79,7 @@ li.mapbox-directions-step {
   left: 18px;
   width: 90vw;
   border-radius: 4px;
+  font-family: 'Noto', sans-serif;
 }
 
 button.directions-icon.directions-icon-reverse.directions-reverse.js-reverse-inputs {
@@ -155,6 +158,8 @@ button.end-link-show {
   left: 17px;
   padding: 8px 12px;
   color: white;
+  font-family: 'Noto', sans-serif;
+  font-weight: bold;
 }
 
 .map-eta{
@@ -203,6 +208,7 @@ button.end-link-show {
   height:37px;
   overflow: hidden;
   text-align: center !important;
+  font-family: 'Noto', sans-serif;
 }
 
 .button .btn .btn-danger {
@@ -217,4 +223,3 @@ button.end-link-show {
   border-radius: 5px !important;
   margin: auto;
 }
-

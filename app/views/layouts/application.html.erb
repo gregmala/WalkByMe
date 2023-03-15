@@ -29,12 +29,14 @@
   </head>
 
   <body>
-    <% if current_page?(root_path) %>
-      <%= render "shared/navbar-home" %>
-    <% elsif current_page?(user_path(current_user)) %>
-      <%= render "shared/navbar-profile"%> <!-- problem when logged in-->
-    <% else %>
-      <%= render "shared/navbar" %>
+    <% if user_signed_in? %>
+      <% if current_page?(root_path) %>
+        <%= render "shared/navbar-home" %>
+      <% elsif current_page?(user_path(current_user)) %>
+        <%= render "shared/navbar-profile"%> <!-- problem when logged in-->
+      <% else %>
+        <%= render "shared/navbar" %>
+      <% end %>
     <% end %>
 
     <%= render "shared/flashes" %>
