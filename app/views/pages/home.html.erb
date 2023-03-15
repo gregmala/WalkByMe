@@ -35,10 +35,92 @@
 
 
 <div data-controller="map" class= "homepage-map"></div>
-
-<div class="home-help-container">
   <div class="home-help-btn">
     <%# <i class="fa-solid fa-question"></i> %>
     <%= link_to "?", carousel_index_path(current_user), class: "home-help-icon" %>
   </div>
 </div>
+
+
+<%# <script>
+$(function() {
+  // Set up variables
+  var container = $(".container");
+  var draggableElements = $(".draggable");
+  var mapElement = $(".homepage-map");
+  var helpIcon = $(".home-help-icon");
+
+  // Set up draggable elements
+  draggableElements.draggable({
+    containment: container,
+    cursor: "move",
+    opacity: 0.5,
+    snap: ".draggable",
+    snapMode: "inner",
+    stack: ".draggable",
+    start: function(event, ui) {
+      $(this).addClass("dragging");
+    },
+    stop: function(event, ui) {
+      $(this).removeClass("dragging");
+    }
+  });
+
+  // Set up droppable elements
+  draggableElements.droppable({
+    accept: ".draggable",
+    tolerance: "intersect",
+    over: function(event, ui) {
+      $(this).addClass("hover");
+    },
+    out: function(event, ui) {
+      $(this).removeClass("hover");
+    },
+    drop: function(event, ui) {
+      var draggable = ui.draggable;
+      var droppable = $(this);
+      var draggableOffset = draggable.offset();
+      var droppableOffset = droppable.offset();
+
+      // Swap positions of draggable and droppable elements
+      draggable.insertBefore(droppable).css({
+        top: droppableOffset.top - container.offset().top,
+        left: droppableOffset.left - container.offset().left
+      });
+      droppable.insertAfter(draggable).css({
+        top: draggableOffset.top - container.offset().top,
+        left: draggableOffset.left - container.offset().left
+      });
+
+      // Remove hover and dragging classes
+      draggable.removeClass("dragging");
+      droppable.removeClass("hover");
+
+      // Re-order the elements based on the new order
+      draggableElements = $(".draggable");
+      draggableElements.each(function(index) {
+        $(this).css({
+          top: 0,
+          left: 0
+        }).appendTo($(this).parent());
+      });
+    }
+  });
+
+  // Set up map element
+  mapElement.attr("data-controller", "map");
+
+  // Set up help icon
+  helpIcon.attr("href", carousel_index_path(current_user));
+
+  // Set up dragstop event to re-order elements
+  container.on("dragstop", function(event, ui) {
+    var draggableElements = $(".draggable");
+    draggableElements.each(function(index) {
+      $(this).appendTo($(this).parent());
+    });
+  });
+}); %>
+
+
+</script>

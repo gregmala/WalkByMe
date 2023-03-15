@@ -95,7 +95,7 @@ export default class extends Controller {
           this.etaTarget.innerText = ""
           console.dir(this.etaTarget)
           this.etaTarget.innerText = `${Math.round((ETA/60))}`
-          steps[index+1].scrollIntoView()
+          steps[index+1].scrollIntoView({behavior: "smooth"})
           this.recordData1({
             eta: Math.round((ETA/60)),
           });
