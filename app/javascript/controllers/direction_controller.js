@@ -116,8 +116,6 @@ export default class extends Controller {
       let ETA = Math.round(route.duration);
       stepps.forEach((step, index) => {
         step.addEventListener('click', (e) => {
-          console.log(step)
-          console.log(index - stepDurations.length);
           ETA = Math.round(ETA - Math.round(stepDurations[index - stepDurations.length]));
           this.etaTarget.innerText = ""
           this.etaTarget.innerText = `${Math.round((ETA/60))}`

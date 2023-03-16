@@ -6,7 +6,7 @@
     <%= f.input :address, input_html: { class: 'form-control', style: 'border: 1px solid black;' } %>
   </div>
   <div class="form-group">
-    <%= f.input :icon, as: :select, collection: { 'Home' => 'fa-house', 'Work' => 'fa-briefcase', 'Restaurant' => 'fa-solid fa-burger' }, label: 'Select an icon', input_html: { class: 'form-control', style: 'border: 1px solid black;' } %>
+   <%= f.input :icon, as: :select, collection: { 'Home' => 'https://res.cloudinary.com/dzb3rykjc/image/upload/v1678955710/house_1_uxxgmr.png', 'Work' => 'https://res.cloudinary.com/dzb3rykjc/image/upload/v1678956786/briefcase_xfv5ie.png', 'Restaurant' => 'https://res.cloudinary.com/dzb3rykjc/image/upload/v1678955709/burger_ytvsbf.png' }, label: 'Select an icon', input_html: { class: 'form-control', style: 'border: 1px solid black;' } %>
   </div>
   <%= f.button :submit, class: 'btn btn-primary', style: 'background-color: #E38481; font-weight: bold; border: 0; border: 1px solid black;' %>
 <% end %>
