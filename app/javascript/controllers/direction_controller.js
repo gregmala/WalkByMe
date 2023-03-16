@@ -6,12 +6,12 @@ export default class extends Controller {
   static targets = ['link','eta','timer']
   static values = {id: Number, user: Object}
   connect() {
-    console.log("hello")
+    console.log("by")
     mapboxgl.accessToken = "pk.eyJ1IjoicGllcnJlamViYXJhIiwiYSI6ImNsZHloNXl5bTA3MWIzdnM1amNqbmFkanUifQ.k9o5mCT3bt0X6C-b6JPskA";
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [-74, 40.7128],
+      center: [40.413819386164036, -3.6698255290660855],
       zoom: 12,
     });
     this.initializeMap();
@@ -26,6 +26,32 @@ export default class extends Controller {
       profile: "mapbox/walking",
       flyTo: false,
     });
+
+    const geocodingEndpoint = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
+
+    // Replace these with your own addresses
+    const originAddress = 'Calle del Doctor Esquerdo 70, Madrid, Spain';
+    const destinationAddress = 'Calle del Doctor Esquerdo 80, Madrid, Spain';
+
+    // Geocode origin address
+    const originGeocodeUrl = `${geocodingEndpoint}${encodeURIComponent(originAddress)}.json?access_token=${mapboxgl.accessToken}`;
+    fetch(originGeocodeUrl)
+      .then(response => response.json())
+      .then(data => {
+        const originCoordinates = data.features[0].center;
+        // Use the coordinates to set the origin on the map
+        this.directions.setOrigin(originCoordinates);
+      });
+
+    // Geocode destination address
+    const destinationGeocodeUrl = `${geocodingEndpoint}${encodeURIComponent(destinationAddress)}.json?access_token=${mapboxgl.accessToken}`;
+    fetch(destinationGeocodeUrl)
+      .then(response => response.json())
+      .then(data => {
+        const destinationCoordinates = data.features[0].center;
+        // Use the coordinates to set the destination on the map
+        this.directions.setDestination(destinationCoordinates);
+      });
 
     this.map.addControl(this.directions, "bottom-left");
     this.directions.on("route", (e) => {
@@ -42,7 +68,7 @@ export default class extends Controller {
       //   this.linkTarget.classList.remove("end-link")
       //   this.linkTarget.classList.add("end-link-show")
       // }
-      const steps = document.querySelectorAll(".mapbox-directions-step")
+      const stepps = document.querySelectorAll(".mapbox-directions-step")
       // document.querySelector(".mapbox-directions-origin").classList.add("display")
       // document.querySelector(".mapbox-directions-destination").classList.add("display")
       // document.querySelector(".mapbox-directions-component .mapbox-directions-inputs").classList.add("display")
@@ -87,17 +113,13 @@ export default class extends Controller {
       }, 1000);
 
       // console.log(stepDurations)
-      let ETA = Math.round(route.duration )
-
-      steps.forEach((step, index) => {
+      let ETA = Math.round(route.duration);
+      stepps.forEach((step, index) => {
         step.addEventListener('click', (e) => {
-          console.log(step);
-          console.log(index);
-          ETA = Math.round(ETA - Math.round(stepDurations[index]));
+          ETA = Math.round(ETA - Math.round(stepDurations[index - stepDurations.length]));
           this.etaTarget.innerText = ""
-          console.dir(this.etaTarget)
           this.etaTarget.innerText = `${Math.round((ETA/60))}`
-          steps[index+1].scrollIntoView({behavior: "smooth"})
+          stepps[index+1].scrollIntoView({behavior: "smooth"})
           this.recordData1({
             eta: Math.round((ETA/60)),
           });
