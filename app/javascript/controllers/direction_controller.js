@@ -91,6 +91,8 @@ export default class extends Controller {
 
       steps.forEach((step, index) => {
         step.addEventListener('click', (e) => {
+          console.log(step);
+          console.log(index);
           ETA = Math.round(ETA - Math.round(stepDurations[index]));
           this.etaTarget.innerText = ""
           console.dir(this.etaTarget)
